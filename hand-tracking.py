@@ -14,7 +14,7 @@ y1_max=719 #right hand y coor
 y2_max=719 #left hand y coor
 threshold = 60 #no change needed in most situations
 
-def findHandPos (scaleMode):
+def findHandPos():
     
     cap = cv2.VideoCapture(0)
     cameraResolution = [int(cap.get(3)), int(cap.get(4))]
@@ -154,4 +154,4 @@ def findHandPos (scaleMode):
     cap.release()
     cv2.destroyAllWindows()
 
-findHandPos(True)
+findHandPos()
