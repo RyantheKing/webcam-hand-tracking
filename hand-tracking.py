@@ -15,7 +15,6 @@ y2_max=719 #left hand y coor
 threshold = 60 #no change needed in most situations
 
 def findHandPos():
-    
     cap = cv2.VideoCapture(0)
     cameraResolution = [int(cap.get(3)), int(cap.get(4))]
     bgModel = -1
@@ -23,7 +22,6 @@ def findHandPos():
     isBgCaptured = 0
 
     while True:
-
         # Capture frame-by-frame
         '''
         frame=cv2.flip(frame,1)
@@ -72,7 +70,7 @@ def findHandPos():
         # cv2.line(frame,(int(frame.shape[1]//19.5*17+frame.shape[0]//19) ,frame.shape[0]//40*39),(int(frame.shape[1]//19.5*18+frame.shape[0]//19),frame.shape[0]//40*39),(40,40,40),3) 
         # cv2.line(frame,(int(frame.shape[1]//19.5*18+frame.shape[0]//19) ,frame.shape[0]//40*39),(int(frame.shape[1]//19.5*19+frame.shape[0]//19),frame.shape[0]//40*39),(31,63,246),3) 
 
-        if cv2.waitKey(0) == ord('x'):
+        if cv2.waitKey(1) == ord('x'):
             bgModel = cv2.createBackgroundSubtractorMOG2(0, 50)
 
         #  big boi calculations
@@ -114,7 +112,7 @@ def findHandPos():
                 res = contours1[ci]
                 y1_max = frame.shape[0]-1
                 for i in range(len(res)): #adjust offset on right hand + get top of hand coordinates
-                    res[i][0][0]+=(frame.shape[1]/3.0)
+                    res[i][0][0]+=(frame.shape[1]/2.0)
                     if res[i][0][1] < y1_max:
                         y1_max = res[i][0][1]
                         x1_max = res[i][0][0]
@@ -144,10 +142,10 @@ def findHandPos():
                 #cv2.circle(frame, (x1_max, frame.shape[0]//40*39), 4, (240, 40, 40), 4) #pitch dot
 
                 # Display the resulting frame
-                cv2.imshow('original', frame)
+        cv2.imshow('original', frame)
                 #outArray = [cameraResolution,x2_max,y2_max,x1_max,y1_max,scaleMode]
 
-        if cv2.waitKey(0) == ord('q'):
+        if cv2.waitKey(1) == ord('q'):
             break
 
     # When everything done, release the capture
