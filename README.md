@@ -9,7 +9,7 @@ I have isolated it here so it can be used for other purposes.
 
 ## Installation
 #### Standalone
-Download the file and run `py hand-tracking.py`
+Download the file and run `py main.py`
 
 #### As a python module
 Download the `handtracking.py` file. It has two functions, `findHandPos_standalone` which runs the video loop inside the function and `findHandPos_frame` which find the hand countours and position using the given frame and a background model.
