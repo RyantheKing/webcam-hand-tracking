@@ -17,6 +17,7 @@ threshold = 60 #no change needed in most situations
 def findHandPos():
     cap = cv2.VideoCapture(0)
     cameraResolution = [int(cap.get(3)), int(cap.get(4))]
+    print(cameraResolution)
     bgModel = -1
     
     isBgCaptured = 0
@@ -91,6 +92,7 @@ def findHandPos():
             blur1 = cv2.GaussianBlur(gray1, (41, 41), 0) #<--blur boi 1
             blur2 = cv2.GaussianBlur(gray2, (41, 41), 0) #<--blur boi 2
             blur3 = cv2.GaussianBlur(gray3, (41, 41), 0) #<--blur boi 3 (combined 1 and 2)
+            cv2.imshow('blur', blur3)
             ret, thresh1 = cv2.threshold(blur1, threshold, 255, cv2.THRESH_BINARY)
             ret, thresh2 = cv2.threshold(blur2, threshold, 255, cv2.THRESH_BINARY)
             ret, thresh3 = cv2.threshold(blur3, threshold, 255, cv2.THRESH_BINARY)
