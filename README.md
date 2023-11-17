@@ -1,4 +1,4 @@
-# webcam-hand-tracking
+# webcam-hand-tracking (code for TitanHacks 2020 - 2nd Place Winner)
 A python program that uses OpenCV to track the position of your hands using an ordinary webcam.
 This is the code I created as my contribution to the Webcam Theremin project. (https://github.com/RyantheKing/webcam-theremin)
 I have isolated it here so it can be used for other purposes.
